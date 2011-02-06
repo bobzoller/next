@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Baby Zoller</title>
+    <title>next.zoller.us</title>
     <link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=960">
     <style type="text/css" media="screen"> 
@@ -26,7 +26,7 @@
         margin: 0 auto;
         text-align: center;
       }
-      div.slide div.frame img {
+      div.slide div.frame img, #video-swf {
         border: 20px solid #999;
         border-radius: 10px;
         -moz-border-radius: 10px;
@@ -49,12 +49,6 @@
         text-decoration: none;
         color: #333;
       }
-      #controls #prev {
-        /*margin-right: 2em;*/
-      }
-      #controls #next {
-        /*margin-left: 2em;*/
-      }
     </style>
   </head>
   <body>
@@ -68,16 +62,15 @@
         <div class="frame"><img src="marriage.jpg"></div>
       </div>
       <div class="slide" id="10years" style="display: none">
-        <h2>Then comes your 10 year anniversary...</h2>
+        <h2>And after 10 years together...</h2>
         <div class="frame"><img src="10years.jpg"></div>
       </div>
       <div class="slide" id="video" style="display: none">
-        <h2>And then comes...</h2>
+        <h2>Then comes...</h2>
         <div class="frame" id="video"><div id="video-swf"></div></div>
       </div>
       <div id="controls">
         <div class="wrapper">
-          <!-- <a id="prev" href="#" onclick="prevSlide(); return false;">&larr; prev</a> -->
           <a id="next" style="display: none" href="#" onclick="nextSlide(); return false;">next &rarr;</a>
         </div>
       </div>
