@@ -26,10 +26,30 @@
         margin: 0 auto;
         text-align: center;
       }
-      div.slide div.frame img, #video-swf {
+      div.slide div.frame img, #video-swf, #video-noflash {
         border: 20px solid #999;
         border-radius: 10px;
         -moz-border-radius: 10px;
+      }
+      #video-noflash {
+        position: relative;
+        width: 900px;
+        height: 506px;
+      }
+      #video-noflash img {
+        border: none;
+        border-radius: 0;
+        -moz-border-radius: 0;
+      }
+      #video-noflash h3 {
+        background: #BDFCC9;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        font-size: 24px;
+        text-align: center;
+        margin: 0;
+        width: 100%;
       }
       #controls {
         font-size: 26px;
@@ -67,7 +87,10 @@
       </div>
       <div class="slide" id="video" style="display: none">
         <h2>Then comes...</h2>
-        <div class="frame" id="video"><div id="video-swf"><img src="sonogram.jpg"></div></div>
+        <div class="frame" id="video"><div id="video-noflash">
+          <h3>If you view this on a flash-capable device, you'll see a video...</h3>
+          <img src="sonogram.jpg">
+        </div></div>
       </div>
       <div id="controls">
         <div class="wrapper">
@@ -82,7 +105,8 @@
       $$('div.slide h2').each(function(div) { div.setStyle('opacity: 0'); });
       $$('div.slide div.frame').each(function(div) { div.setStyle('opacity: 0'); });
 
-      var slides = ['love', 'marriage', '10years', 'video'];
+      //var slides = ['love', 'marriage', '10years', 'video'];
+      var slides = ['video'];
       var currentSlide = 0;
       var locked = false;
 
@@ -161,8 +185,6 @@
 
       var init = function() {
         // Run the javascript when the page is ready
-        var swf_id = 'video-swf';
-
         var flashvars = {
           clip_id: video_id,
           show_portrait: 0,
@@ -179,7 +201,7 @@
         var attributes = {};
 
         // For more SWFObject documentation visit: http://code.google.com/p/swfobject/wiki/documentation
-        swfobject.embedSWF("http://vimeo.com/moogaloop.swf", swf_id, "640", "360", "9.0.0","expressInstall.swf", flashvars, params, attributes);
+//        swfobject.embedSWF("http://vimeo.com/moogaloop.swf", 'video-noflash', "900", "506", "9.0.0","expressInstall.swf", flashvars, params, attributes);
 
         getLock(); // The initial one.
         appearSlide(0, function() { freeLock(); });
